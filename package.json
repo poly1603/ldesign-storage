@@ -1,0 +1,29 @@
+{
+  "name": "@ldesign/storage",
+  "version": "0.1.0",
+  "description": "LDesign 统一存储抽象层 - 本地存储、云存储、文件元数据管理",
+  "keywords": ["ldesign", "storage", "s3", "oss", "cloud"],
+  "author": "LDesign Team",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "scripts": {
+    "build": "ldesign-builder build -f esm,cjs,dts",
+    "dev": "ldesign-builder watch",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "@ldesign/cache": "workspace:*",
+    "@ldesign/http": "workspace:*",
+    "@ldesign/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@ldesign/builder": "workspace:*",
+    "@antfu/eslint-config": "^6.0.0",
+    "eslint": "^9.18.0",
+    "typescript": "^5.7.3"
+  }
+}
+
