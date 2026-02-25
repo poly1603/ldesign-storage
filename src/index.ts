@@ -1,44 +1,10 @@
 /**
- * @ldesign/storage - 统一存储抽象层
+ * @ldesign/storage - LDesign 存储管理
+ * @module @ldesign/storage
  */
 
-export interface StorageAdapter {
-  get(key: string): Promise<any>
-  set(key: string, value: any): Promise<void>
-  remove(key: string): Promise<void>
-  clear(): Promise<void>
-}
+// 导出核心功能
+export * from '@ldesign/storage-core'
 
-export class UnifiedStorage {
-  private adapter: StorageAdapter
-
-  constructor(adapter: StorageAdapter) {
-    this.adapter = adapter
-  }
-
-  async get<T>(key: string): Promise<T | null> {
-    return await this.adapter.get(key)
-  }
-
-  async set<T>(key: string, value: T): Promise<void> {
-    await this.adapter.set(key, value)
-  }
-
-  async remove(key: string): Promise<void> {
-    await this.adapter.remove(key)
-  }
-
-  async clear(): Promise<void> {
-    await this.adapter.clear()
-  }
-}
-
-export function createStorage(adapter: StorageAdapter) {
-  return new UnifiedStorage(adapter)
-}
-
-
-
-
-
-
+// 导出 Vue 功能
+export * from '@ldesign/storage-vue'

@@ -1,7 +1,7 @@
 {
-  "name": "@ldesign/storage",
+  "name": "@ldesign/storage-vue",
   "version": "0.1.0",
-  "description": "LDesign 存储管理 - 统一导出 core 和 vue 子包",
+  "description": "LDesign 存储管理 - Vue 3 适配器",
   "keywords": [
     "ldesign",
     "storage",
@@ -9,6 +9,8 @@
     "sessionStorage",
     "indexeddb",
     "vue",
+    "vue3",
+    "composable",
     "typescript"
   ],
   "author": "LDesign Team",
@@ -32,26 +34,28 @@
     "LICENSE",
     "CHANGELOG.md",
     "es",
-    "lib",
-    "dist"
+    "lib"
   ],
   "scripts": {
     "build": "ldesign-builder build",
-    "build:packages": "pnpm --filter './packages/*' build",
-    "dev": "ldesign-builder build --mode development --watch",
-    "clean": "rimraf es lib dist"
+    "dev": "ldesign-builder build --watch",
+    "clean": "rimraf dist es lib",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@ldesign/storage-core": "workspace:*",
-    "@ldesign/storage-vue": "workspace:*"
+    "@ldesign/storage-core": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^6.0.0",
     "@ldesign/builder": "workspace:*",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.7.3"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "@vitejs/plugin-vue": "^5.0.0",
+    "eslint": "^9.18.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.7.3",
+    "vue": "^3.3.0"
   },
   "typings": "./es/index.d.ts",
   "browser": "./dist/index.js"
